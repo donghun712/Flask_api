@@ -1,4 +1,4 @@
-# 📝 Flask Memo API
+## 📝 Flask Memo API
 
 Flask로 구현한 간단한 메모 CRUD REST API입니다.  
 POST / GET / PUT / DELETE 각각 2개씩 (총 8개)의 엔드포인트와  
@@ -64,66 +64,3 @@ undefined
 "message": "에러 설명"
 }
 
-
----
-
-## 📡 엔드포인트 요약
-
-### POST (2개)
-
-- `POST /memos`  
-  - 메모 한 개 생성  
-  - Body: `{ "title": "제목", "content": "내용" }`
-
-- `POST /memos/bulk`  
-  - 여러 메모 한 번에 생성  
-  - Body: `{ "memos": [ { "title": "...", "content": "..." }, ... ] }`
-
----
-
-### GET (2개)
-
-- `GET /memos`  
-  - 모든 메모 목록 조회
-
-- `GET /memos/<memo_id>`  
-  - 특정 메모 조회 (예: `/memos/1`)
-
----
-
-### PUT (2개)
-
-- `PUT /memos/<memo_id>`  
-  - 제목 + 내용 전체 수정  
-  - Body: `{ "title": "새 제목", "content": "새 내용" }`
-
-- `PUT /memos/<memo_id>/title`  
-  - 제목만 수정  
-  - Body: `{ "title": "새 제목" }`
-
----
-
-### DELETE (2개)
-
-- `DELETE /memos/<memo_id>`  
-  - 특정 메모 삭제
-
-- `DELETE /memos`  
-  - 모든 메모 삭제
-
----
-
-## ✅ HTTP 상태 코드 사용
-
-- **2xx**
-  - `200 OK` : 조회/수정/삭제 성공
-  - `201 Created` : 생성 성공
-  - `204 No Content` : 전체 삭제 성공
-  - `207 Multi-Status` : bulk 생성 일부 성공
-
-- **4xx**
-  - `400 Bad Request` : 잘못된 요청 바디, 필드 누락/형식 오류
-  - `404 Not Found` : 존재하지 않는 메모 조회/수정/삭제
-
-- **5xx**
-  - `500 Internal Server Error` : 예기치 못한 서버 내부 에러 (전역 에러 핸들러)
